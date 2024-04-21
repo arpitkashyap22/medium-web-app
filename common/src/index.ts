@@ -3,7 +3,7 @@ import zod from 'zod';
 
 // Signup Input
 export const signupInput = zod.object({
-    username: zod.string().email(),
+    email: zod.string().email(),
     password: zod.string().min(6),
     name: zod.string()
 })
@@ -11,7 +11,7 @@ export const signupInput = zod.object({
 // Signin Input
 
 export const signinInput = zod.object({
-    username: zod.string().email(),
+    email: zod.string().email(),
     password: zod.string().min(6)
 })
 
