@@ -8,13 +8,13 @@ export const Quotes = ({
   designation: string;
 }) => {
   return (
-    <div className="bg-slate-400 h-screen flex flex-col justify-center">
+    <div className="bg-slate-200 h-screen flex flex-col justify-center">
       <div className="flex justify-center">
-        <div >
-          <div className="text-3xl font-extrabold"> {comment}</div>
-          <div>
-            <div className="font-bold  text-xl">{author}</div>
-            <div className="font-bold text-sm text-gray-700">{designation}</div>
+        <div className="max-w-lg ">
+          <div className="text-3xl font-bold"> {comment}</div>
+          <div className="mt-4 font-semibold">
+            <div className="  text-xl max-w-md">{author}</div>
+            <div className=" text-sm text-slate-400  max-w-md">{designation}</div>
           </div>
         </div>
       </div>
