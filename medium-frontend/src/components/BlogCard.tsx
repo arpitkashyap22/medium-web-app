@@ -11,6 +11,7 @@ export const BlogCard = ({
   content,
   publishedDate,
 }: BlogCardProps) => {
+  
   return (
     <div  className="border-b border-slate-200 p-4">
       <div className="flex  items-center">

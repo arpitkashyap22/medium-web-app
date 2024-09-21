@@ -32,7 +32,7 @@ const navigate = useNavigate();
       .then((response) => {
         const jwt = response.data;
         localStorage.setItem("jwt", jwt);
-        navigate("/blog");
+        navigate("/blogs");
       })
       .catch((error) => {
         console.log(error);
