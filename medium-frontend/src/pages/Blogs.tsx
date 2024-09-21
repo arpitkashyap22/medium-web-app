@@ -2,25 +2,34 @@ import { AppBar } from "../components/AppBar";
 import { BlogCard } from "../components/BlogCard";
 import { useBlog } from "../hooks";
 
-export const Blogs = () => {
-    const {loading, blogs} = useBlog();
-    blogs.forEach(ele => console.log(ele.title));
+// Define Blog type
+interface Blog {
+  id: string;
+  authorId: string;
+  title: string;
+  content: string;
+  publishedDate: string;
+}
 
-    if(loading){
-        return <div>
-            loading...
-        </div>
-    }
- 
+export const Blogs: React.FC = () => {
+  const { loading, blogs } = useBlog();
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <AppBar></AppBar>
-      <div className="flex justify-center">
-      {blogs.length > 0 ? (
-          blogs.map((blog) => (
+      <AppBar />
+      <div className="flex justify-center flex-wrap">
+        {blogs.length > 0 ? (
+          blogs.map((blog: Blog) => (
             <BlogCard
-              // Ensure unique key for each BlogCard
+              key={blog.id} // Ensure unique key for each BlogCard
               authorName={blog.authorId}
               title={blog.title}
               content={blog.content}
@@ -28,11 +37,8 @@ export const Blogs = () => {
             />
           ))
         ) : (
-          <p>No blogs available</p>  // Handle empty blogs case
+          <p>No blogs available</p> // Handle empty blogs case
         )}
-        {/* <div className="max-w-xl">
-           <BlogCard authorName="Arpit kashyap" title="AI Sustainablity" content="TEch park" publishedDate={"22-12-2000"}></BlogCard>
-        </div> */}
       </div>
     </div>
   );
